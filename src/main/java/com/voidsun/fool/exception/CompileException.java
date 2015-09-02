@@ -7,5 +7,7 @@ package com.voidsun.fool.exception;
  * @Email voidsun@126.com
  */
 public class CompileException extends RuntimeException{
-
+    public CompileException(String message) {
+        super(message);
+    }
 }
