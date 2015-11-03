@@ -1,6 +1,6 @@
 package com.voidsun.fool.exception;
 
-import java.util.Arrays;
+import com.voidsun.fool.util.reader.CharReader;
 
 /**
  * @Description
@@ -10,15 +10,17 @@ import java.util.Arrays;
  */
 public class LexerException extends CompileException {
 
-    static String buildMessage(char[] inStream, int idx){
-        int start = idx-16;
-        if(start<0) start=0;
-        int end = idx+16;
-        if(end>inStream.length)end = inStream.length;
-        return "error at index [" + (idx-start+1) + "] in " + new String(Arrays.copyOfRange(inStream, start, end));
+    private static String buildMessage(CharReader reader){
+        reader.backStep();
+        return "Illegal Lexer [" + reader.charAtCurrent() + "] at index " + reader.getIndex();
     }
-
-    public LexerException(char[] inStream, int idx) {
-        super(buildMessage(inStream, idx));
+    private static String buildMessage(String charSeq, int index){
+        return "Illegal Lexer [" + charSeq + "] at index " + index;
+    }
+    public LexerException(CharReader reader) {
+        super(buildMessage(reader));
+    }
+    public LexerException(String charSeq, int index) {
+        super(buildMessage(charSeq, index));
     }
 }

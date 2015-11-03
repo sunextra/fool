@@ -9,21 +9,10 @@ package com.voidsun.fool.lexer;
 public enum Kind {
     //基本类型
     ID,
-    INT,
+    NUMBER,
+    KEYWORD,
+    SIGN,
     DOUBLE,
-    VOID,
-    RETURN,
-
-    //符号
-    LPAREN,
-    RPAREN,
-    LBRACE,
-    RBRACE,
-
-    //运算符
-    PLUS,
-    MINUS,
-    SLF_PLUS,
-    SLF_MINUS
+    LONG
     ;
 }

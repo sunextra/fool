@@ -10,22 +10,22 @@ import java.util.Arrays;
  */
 public class Token {
     Kind kind;
-    char[] lexeme;
+    String value;
 
     @Override
     public String toString() {
-        String s = "<" + kind + "," + Arrays.toString(lexeme) + ">";
+        String s = "<" + kind + "," + value + ">";
         return s;
     }
 
-    public Token(Kind kind, char[] inStream, int chStart, int chEnd){
+    public Token(Kind kind, String lexeme){
         this.kind = kind;
-        this.lexeme = Arrays.copyOfRange(inStream, chStart, chEnd);
+        this.value = lexeme;
     }
 
     public Token(Kind kind, char... lexeme){
         this.kind =  kind;
-        this.lexeme = lexeme;
+        this.value = new String(lexeme);
     }
 
     public Token(Kind kind){

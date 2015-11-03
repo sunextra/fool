@@ -1,9 +1,9 @@
 package com.voidsun.fool.lexer;
 
+import com.voidsun.fool.util.reader.StringCharReader;
 import org.junit.Test;
 
 import java.io.*;
-import java.net.URLClassLoader;
 
 /**
  * @Description
@@ -14,17 +14,10 @@ import java.net.URLClassLoader;
 public class LexerParseTest {
     @Test
     public void test() throws IOException {
-        File file = new File(URLClassLoader.getSystemResource("fool").getPath());
-        InputStream inputStream = new FileInputStream(file);
-        byte[] bytes = new byte[(int)file.length()];
-        inputStream.read(bytes);
-        String s = new String(bytes);
-        Lexer lexerParse = new Lexer();
-        lexerParse.scan(s.toCharArray());
+        LexerScanner lexerParse = new LexerScanner();
+        lexerParse.scan(new StringCharReader("1 +&& 5.25"));
         for(Token token : lexerParse.getTokens()){
             System.out.println(token);
         }
     }
-
-
 }
