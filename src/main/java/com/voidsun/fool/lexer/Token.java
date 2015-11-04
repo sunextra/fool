@@ -1,7 +1,5 @@
 package com.voidsun.fool.lexer;
 
-import java.util.Arrays;
-
 /**
  * @Description
  * @Author voidsun
@@ -16,6 +14,14 @@ public class Token {
     public String toString() {
         String s = "<" + kind + "," + value + ">";
         return s;
+    }
+
+    public Kind getKind() {
+        return kind;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     public Token(Kind kind, String lexeme){

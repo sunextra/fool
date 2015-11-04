@@ -15,11 +15,7 @@ public enum Sign {
     MULTIPLY("*"),
     DIVIDE("/"),
     LPARENT("("),
-    RPARENT(")"),
-    AND("&&"),
-    OR("||"),
-    LARGETHANOREQUAL(">="),
-    LARGETHAN(">")
+    RPARENT(")")
     ;
 
     private String sign;

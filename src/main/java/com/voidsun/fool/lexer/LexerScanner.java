@@ -4,8 +4,7 @@ import com.voidsun.fool.exception.LexerException;
 import com.voidsun.fool.util.Keyword;
 import com.voidsun.fool.util.reader.CharReader;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * @Description
@@ -14,10 +13,10 @@ import java.util.List;
  * @Email voidsun@126.com
  */
 public class LexerScanner {
-    private List<Token> tokens = new ArrayList<>();
+    private LinkedList<Token> tokens = new LinkedList<>();
 
-    public List<Token> getTokens(){
-        return tokens;
+    public Token getToken(){
+        return tokens.pollFirst();
     }
 
     public void scan(CharReader reader){
